@@ -25,7 +25,16 @@ exports.handler = async () => {
       body: JSON.stringify({ bucketId })
     });
     const response = await responseRaw.json();
-    return { statusCode: responseRaw.status, body: JSON.stringify(response) }
+    return {
+      statusCode: responseRaw.status,
+      body: JSON.stringify(response),
+      headers: {
+        /* Required for CORS support to work */
+        'Access-Control-Allow-Origin': 'http://localhost:8080',
+        /* Required for cookies, authorization headers with HTTPS */
+        'Access-Control-Allow-Credentials': true
+      },
+    }
   }
   catch(error) {
     return { statusCode: 500, body: error };
