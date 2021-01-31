@@ -28,6 +28,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0"
+    "js-sha1": "^0.6.0",
+    "normalize.css": "^8.0.0",
+    "uuid": "^8.3.2"
   }
 }
