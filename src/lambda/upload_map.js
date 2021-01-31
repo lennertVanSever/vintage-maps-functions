@@ -93,12 +93,11 @@ const uploadFile = async ({ content }) => {
 }
 
 exports.handler = async (event) => {
-  console.log(event.body);
   try {
     const body = JSON.parse(event.body);
     console.log(body.sejdaParameters);
     if (!body.sejdaParameters) {
-      return { statusCode: 400, body: 'provide a correct body', ...responseHeaders };
+      return { statusCode: 200, body: JSON.stringify({ error: 'provide a body' }), ...responseHeaders };
     }
     const {
       sejdaParameters
@@ -114,6 +113,6 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     console.error(error);
-    return { statusCode: 400, body: 'provide a body', ...responseHeaders }; 
+    return { statusCode: 200, body: JSON.stringify({ error: error }), ...responseHeaders }; 
   }
 };
