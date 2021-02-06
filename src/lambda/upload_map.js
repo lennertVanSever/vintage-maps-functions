@@ -1,15 +1,7 @@
 import fetch from "node-fetch";
 import sha1 from 'js-sha1';
 import { v4 as uuid } from 'uuid';
-
-const responseHeaders = {
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-    'Access-Control-Allow-Credentials': true
-  }
-};
+import { responseHeaders } from '../utils';
 
 const {
   BACKBLAZE_USERNAME_PASSWORD,
